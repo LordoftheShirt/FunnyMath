@@ -65,14 +65,14 @@ public class InputManager : MonoBehaviour
                 Destroy(bottomChild.gameObject);
                 inputText = string.Empty;
                 MatchDisplay();
-                print("KILL!");
+                //print("KILL!");
             }
             else if (allowInput)
             {
                 stunCounter = stunTime;
                 allowInput = false;
                 numberDisplay.color = Color.red;
-                print("FAIL!");
+                //print("FAIL!");
             }
         }
     }
@@ -111,9 +111,10 @@ public class InputManager : MonoBehaviour
                 bottomChild = uiConveyor;
                 boxResult = bottomChild.GetResult();
                 digitCount = (int)Mathf.Floor(Mathf.Log10(boxResult) + 1);
-                print("DIGIT AMOUNT: " + digitCount);
                 bottomChild.highlight.SetActive(true);
                 bottomChild.gameObject.name = "Selected Box";
+
+                //print("DIGIT AMOUNT: " + digitCount);
             }
         }
     }
