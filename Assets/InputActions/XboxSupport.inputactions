@@ -6,7 +6,7 @@
             "id": "e3f03d1a-b506-4267-a199-ba7de4d66797",
             "actions": [
                 {
-                    "name": "Move",
+                    "name": "RightJoyStick",
                     "type": "Value",
                     "id": "79c49b89-8ca2-4410-be5c-531b494244c7",
                     "expectedControlType": "Vector2",
@@ -15,13 +15,22 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "LookWithArrow",
+                    "name": "LeftJoyStick",
                     "type": "Value",
                     "id": "508d593d-4baf-4d50-8b16-5e52ba29c1f4",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "RemoveDigit",
+                    "type": "Button",
+                    "id": "de46e426-2964-4e5f-8ba8-bca8e109aab7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -32,64 +41,9 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "RightJoyStick",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "WASD",
-                    "id": "07e89ea7-6b2b-4277-9755-971fefbc4331",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "b72635b0-08ea-4867-9c56-ef16c92a2103",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "860313c4-8e3e-4b0b-ac52-a374b00150d6",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "03c48e35-62f0-44f3-951d-4f6357028de7",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "901780e0-253d-4902-b400-3c14174978ad",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -98,7 +52,51 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LookWithArrow",
+                    "action": "LeftJoyStick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7fe7c036-359c-4b07-a0b2-45435faa5bab",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RemoveDigit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e885a69b-9fe3-4896-925a-81379a80c878",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RemoveDigit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "67a47ffc-a9e6-475b-831e-cfa64cf9ac7e",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RemoveDigit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "611b68b5-ea2e-4dbe-8a5c-a8e5307664e1",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RemoveDigit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
