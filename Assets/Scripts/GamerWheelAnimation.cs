@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class GamerWheelAnimation : MonoBehaviour
 {
+    public InputManager inputManager;
     public SmallCubeController myPlayer;
+
     private Image[] childAnimations;
     private int childCounter = 0;
-    private int focusNumber = 0;
+    private int focusNumber = 0, focusNumberRecorded = 69;
 
     [SerializeField] private Color[] colors;
     void Start()
@@ -22,10 +24,12 @@ public class GamerWheelAnimation : MonoBehaviour
                 childCounter++;
             }
         }
+
+        inputManager.input.SetPlayer(this);
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (myPlayer != null)
         {
@@ -91,13 +95,24 @@ public class GamerWheelAnimation : MonoBehaviour
                 }
             }
 
-            if (myPlayer.GetJoyInput().magnitude == 0)
+            if (myPlayer.GetJoyInput().magnitude == 0 && focusNumber != 69)
             {
                 if (childAnimations[focusNumber].color != colors[0])
                 {
                     childAnimations[focusNumber].color = colors[0];
+                    // save the result here of the last selected number.
+                    
+                    focusNumberRecorded = focusNumber;
+                    focusNumber = 69;
                 }
             }
         }
+    }
+
+    public int GetFocusNumber() { return focusNumberRecorded; }
+
+    public void RecordedNumberReset()
+    {
+        focusNumberRecorded = 69;
     }
 }

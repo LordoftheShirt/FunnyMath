@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class AIController : InputController
 {
+    //private static SceneManager SceneManager;
     public override bool RetrieveNum0Input()
     {
         return true;
@@ -23,4 +24,9 @@ public class AIController : InputController
 
     public override bool RetrieveBackspace() { return true; }
     public override bool RetrieveSelectionFreeze() { return true; }
+
+    public override void SetPlayer(GamerWheelAnimation script)
+    {
+        //DO NOTHING.
+    }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class InputController : ScriptableObject
 {
+    private GamerWheelAnimation player;
     public abstract bool RetrieveNum0Input();
     public abstract bool RetrieveNum1Input();
     public abstract bool RetrieveNum2Input();
@@ -16,5 +17,7 @@ public abstract class InputController : ScriptableObject
     public abstract bool RetrieveNum9Input();
     public abstract bool RetrieveBackspace();
     public abstract bool RetrieveSelectionFreeze();
+
+    public abstract void SetPlayer(GamerWheelAnimation script);
 
 }

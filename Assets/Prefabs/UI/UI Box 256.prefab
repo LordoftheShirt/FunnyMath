@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberDisplay: {fileID: 8472166975056770770}
   highlight: {fileID: 4166931503451174846}
-  speed: 2
+  speed: 1
 --- !u!1 &4166931503451174846
 GameObject:
   m_ObjectHideFlags: 0

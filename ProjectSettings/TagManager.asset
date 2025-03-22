@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - GamerWheel1
+  - GamerWheel2
+  - GamerWheel3
+  - GamerWheel4
   layers:
   - Default
   - TransparentFX

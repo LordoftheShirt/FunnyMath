@@ -12,17 +12,29 @@ public class SmallCubeController : MonoBehaviour
     private Vector3 triangleStart, outOfBoundsCheck, constrainedDistanceVector;
     private Vector2 rightStickMovementInput, leftStickMovementInput, getInputAmount;
     private GameObject myWheel;
+    private SceneManager sceneManager;
 
     private void Awake()
     {
         transform.SetParent(GameObject.Find("Gamer Wheel Canvas").transform);
-        myWheel = GameObject.FindWithTag("GamerWheel1");
-        if(myWheel.activeSelf)
+
+        if(!SceneManager.playerCount[0].activeSelf)
         {
-            myWheel.SetActive(true);
-            triangleStart = myWheel.transform.position;
-            myWheel.GetComponent<GamerWheelAnimation>().myPlayer = GetComponent<SmallCubeController>();
+            SpawnPlayer(0);
         }
+        else if (!SceneManager.playerCount[1].activeSelf)
+        {
+            SpawnPlayer(1);
+        }
+        else if (!SceneManager.playerCount[2].activeSelf)
+        {
+            SpawnPlayer(2);
+        }
+        else if (!SceneManager.playerCount[3].activeSelf)
+        {
+            SpawnPlayer(3);
+        }
+
         cube.position = transform.parent.position;
         print("SPAWNED PLAYER: " + gameObject.name);
     }
@@ -62,5 +74,13 @@ public class SmallCubeController : MonoBehaviour
     {
 
         return getInputAmount;
+    }
+
+    private void SpawnPlayer(int index)
+    {
+        myWheel = SceneManager.playerCount[index];
+        myWheel.SetActive(true);
+        triangleStart = myWheel.transform.position;
+        myWheel.GetComponent<GamerWheelAnimation>().myPlayer = GetComponent<SmallCubeController>();
     }
 }

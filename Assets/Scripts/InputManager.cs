@@ -11,7 +11,7 @@ public class InputManager : MonoBehaviour
     private UIConveyor bottomChild;
     private int boxResult, digitCount, myResult;
 
-    [SerializeField] private InputController input = null;
+    public InputController input;
     [SerializeField] private TextMeshProUGUI numberDisplay;
     [SerializeField] private float stunTime = 3f;
 

@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class KeyboardController : InputController
 {
+    //private static SceneManager SceneManager;
+
     public override bool RetrieveNum0Input()
     {
         if (Input.GetKeyDown(KeyCode.Keypad0)) return true;
@@ -88,4 +90,8 @@ public class KeyboardController : InputController
         return Input.GetKeyDown(KeyCode.KeypadPlus);
     }
 
+    public override void SetPlayer(GamerWheelAnimation script)
+    {
+        //DO NOTHING.
+    }
 }
