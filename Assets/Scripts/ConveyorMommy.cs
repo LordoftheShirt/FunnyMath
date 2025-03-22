@@ -15,6 +15,8 @@ public class ConveyorMommy : MonoBehaviour
     private int activeConveyors = 0;
     private int[] firstSiblingResults;
 
+    private bool goCrazy = false;
+
     void Start()
     {
         childSize = child.GetComponent<RectTransform>();
@@ -33,20 +35,15 @@ public class ConveyorMommy : MonoBehaviour
     }
 
     private void Update()
-    { 
-        // This scans literally the entire galaxy to find a result which matches with your answer.
-        /*
-        for (int i = 0; i < activeConveyors; i++) 
+    {
+        if (goCrazy)
         {
-            for (int j = 0; j < conveyorParents[i].transform.childCount; j++)
-            {
-                // if My Answer equals any of these children
-                if (5 == SiblingResult(i, j))
-                {
-                    Destroy(conveyorParents[i].transform.GetChild(j));
-                }
-            }
-        } */
+            TryEverything();
+        }
+        else
+        {
+
+        }
     }
 
     void FixedUpdate()
@@ -82,5 +79,28 @@ public class ConveyorMommy : MonoBehaviour
             print(conveyorParents[conveyorIndex].transform.GetChild(siblingIndex).name + " is fucked.");
             return 69;
         }
+    }
+
+    private void TryEverything()
+    {
+        // This scans literally the entire galaxy to find a result which matches with your answer.
+        for (int i = 0; i < activeConveyors; i++)
+        {
+            for (int j = 0; j < conveyorParents[i].transform.childCount; j++)
+            {
+                // if My Answer equals any of these children
+                if (5 == SiblingResult(i, j))
+                {
+                    Destroy(conveyorParents[i].transform.GetChild(j));
+                }
+            }
+        }
+    }
+
+    private void BottomSiblings()
+    {
+        // gets bottom siblings and stores them in an array, then matches with answers.
+
+        // NOTE: DIGIT AMOUNT ALLOWED IS ITS OWN VARIABLE WHICH ONE MANUALLY INCREASES (STARTING AT 2 VARIABLES ALLOWED IF NOT THIRD IS AN ANSWER IN AND OF ITSELF.)
     }
 }

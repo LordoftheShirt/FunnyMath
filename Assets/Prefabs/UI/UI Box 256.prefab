@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7771459266119849241}
-  - component: {fileID: 278927513560112804}
+  - component: {fileID: 72567826124241075}
   m_Layer: 5
   m_Name: UI Box 256
   m_TagString: Untagged
@@ -40,7 +40,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 150, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &278927513560112804
+--- !u!114 &72567826124241075
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,12 +49,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1320767569182715292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c855ef368975b104b83a4ba7e7a176a1, type: 3}
+  m_Script: {fileID: 11500000, guid: 71cf2e97374ddf742b87c98ba1ac7c8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   numberDisplay: {fileID: 8472166975056770770}
   highlight: {fileID: 4166931503451174846}
-  speed: 1
+  speed: 2
 --- !u!1 &4166931503451174846
 GameObject:
   m_ObjectHideFlags: 0
