@@ -13,6 +13,7 @@ public class ConveyorMommy : MonoBehaviour
 
     private RectTransform childSize;
     private int activeConveyors = 0;
+    private int[] firstSiblingResults;
 
     void Start()
     {
@@ -22,10 +23,30 @@ public class ConveyorMommy : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             conveyorParents[i] = transform.GetChild(i).GetComponent<ConveyorLine>();
-            activeConveyors++;
+            if (conveyorParents[i].conveyorOn)
+            {
+                activeConveyors++;
+            }
         }
 
+        firstSiblingResults = new int[activeConveyors];
+    }
 
+    private void Update()
+    { 
+        // This scans literally the entire galaxy to find a result which matches with your answer.
+        /*
+        for (int i = 0; i < activeConveyors; i++) 
+        {
+            for (int j = 0; j < conveyorParents[i].transform.childCount; j++)
+            {
+                // if My Answer equals any of these children
+                if (5 == SiblingResult(i, j))
+                {
+                    Destroy(conveyorParents[i].transform.GetChild(j));
+                }
+            }
+        } */
     }
 
     void FixedUpdate()
@@ -36,7 +57,7 @@ public class ConveyorMommy : MonoBehaviour
         }
     }
 
-    public void ConveyorAction(int index)
+    private void ConveyorAction(int index)
     {
         if (conveyorParents[index].transform.childCount == 0)
         {
@@ -50,8 +71,16 @@ public class ConveyorMommy : MonoBehaviour
         }
     }
 
-    private void MeasureDeltaDistance()
+    private int SiblingResult(int conveyorIndex, int siblingIndex)
     {
-
+        if (int.TryParse(conveyorParents[conveyorIndex].transform.GetChild(siblingIndex).name, out int result))
+        {
+            return result;
+        }
+        else
+        {
+            print(conveyorParents[conveyorIndex].transform.GetChild(siblingIndex).name + " is fucked.");
+            return 69;
+        }
     }
 }

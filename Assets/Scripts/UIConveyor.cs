@@ -13,7 +13,7 @@ public class UIConveyor : MonoBehaviour
 
     // we're probably going to want to move this into conveyor mommy later, and have this controlled by an animation curve
     public float speed = 2;
-    void Start()
+    void Awake()
     {
         conveyorEnd = transform.parent;
 
@@ -22,6 +22,7 @@ public class UIConveyor : MonoBehaviour
         result = firstNumber * secondNumber;
 
         numberDisplay.text = firstNumber + " x " + secondNumber;
+        gameObject.name = result.ToString();
     }
 
     // Update is called once per frame
