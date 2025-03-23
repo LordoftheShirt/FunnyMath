@@ -9,16 +9,21 @@ public class ConveyorMommy : MonoBehaviour
     [SerializeField] private float verticalOffset = 10f;
     [SerializeField] private GameObject child;
     [SerializeField] private Transform conveyorStart;
+
     private ConveyorLine[] conveyorParents;
 
     private RectTransform childSize;
     private int activeConveyors = 0;
-    private int[] firstSiblingResults;
+    private int[] playerAnswers;
 
     private bool goCrazy = false;
 
+    private GameManager gameManager;
+
     void Start()
     {
+        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+
         childSize = child.GetComponent<RectTransform>();
         conveyorParents = new ConveyorLine[transform.childCount];
 
@@ -31,18 +36,20 @@ public class ConveyorMommy : MonoBehaviour
             }
         }
 
-        firstSiblingResults = new int[activeConveyors];
+        Debug.Log("Active Conveyors: "  + activeConveyors);
     }
 
     private void Update()
     {
+        UpdateAnswerRegistry();
+
         if (goCrazy)
         {
             TryEverything();
         }
         else
         {
-
+            CheckOnlyBottomSiblings();
         }
     }
 
@@ -88,19 +95,53 @@ public class ConveyorMommy : MonoBehaviour
         {
             for (int j = 0; j < conveyorParents[i].transform.childCount; j++)
             {
-                // if My Answer equals any of these children
-                if (5 == SiblingResult(i, j))
+                foreach (int answer in gameManager.answerRegistry)
                 {
-                    Destroy(conveyorParents[i].transform.GetChild(j));
+                    if (answer == SiblingResult(i, j))
+                    {
+                        Destroy(conveyorParents[i].transform.GetChild(j));
+                        break;
+                    }
                 }
             }
         }
     }
 
-    private void BottomSiblings()
+    private void CheckOnlyBottomSiblings()
     {
+        Debug.Log("Answer Registry Length: " + gameManager.answerRegistry.Length);
+        for (int i = 0; i < activeConveyors; i++)
+        {
+            for (int j = 0; gameManager.answerRegistry.Length > 0; j++)
+            {
+                Debug.Log("J:" +j + " I: " + i);
+                if (gameManager.answerRegistry[j] == SiblingResult(i, 0))
+                {
+                    Destroy(conveyorParents[i].transform.GetChild(0));
+                    gameManager.playerCount[j].ResetAnswer();
+                    break;
+                }
+            }
+
+        }
         // gets bottom siblings and stores them in an array, then matches with answers.
 
         // NOTE: DIGIT AMOUNT ALLOWED IS ITS OWN VARIABLE WHICH ONE MANUALLY INCREASES (STARTING AT 2 VARIABLES ALLOWED IF NOT THIRD IS AN ANSWER IN AND OF ITSELF.)
+    }
+
+
+    private void UpdateAnswerRegistry()
+    {
+        for (int i = 0; i < gameManager.playerCount.Length; i++)
+        {
+            if (gameManager.playerCount[i].playerPaired)
+            {
+                if (gameManager.answerRegistry[i] != gameManager.playerCount[i].myAnswer)
+                {
+                    gameManager.answerRegistry[i] = gameManager.playerCount[i].myAnswer;
+
+                }
+            }
+        }
     }
 }

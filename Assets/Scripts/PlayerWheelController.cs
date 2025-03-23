@@ -14,6 +14,9 @@ public class PlayerWheelController : MonoBehaviour
     public bool playerPaired = false;
     private string inputText = "";
     private int colorLerpSpeed = 4;
+
+    public int myAnswer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +45,7 @@ public class PlayerWheelController : MonoBehaviour
         if (numberDisplay.text != inputText)
         {
             numberDisplay.text = inputText;
+            RegisterDisplayText();
         }
 
 
@@ -78,6 +82,24 @@ public class PlayerWheelController : MonoBehaviour
         {
             inputText = inputText.Substring(0, inputText.Length - 1);
         }
+        MatchDisplay();
+    }
+
+    private void RegisterDisplayText()
+    {
+        if (numberDisplay.text.Length > 0)
+        {
+            if (int.TryParse(numberDisplay.text, out int answer))
+            {
+                myAnswer = answer;
+            }
+        }
+    }
+
+    public void ResetAnswer()
+    {
+        inputText = "";
+        myAnswer = 0;
         MatchDisplay();
     }
 }
