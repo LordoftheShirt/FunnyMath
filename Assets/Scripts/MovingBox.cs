@@ -11,6 +11,7 @@ public class MovingBox : MonoBehaviour
     private Transform conveyorEnd;
     private int firstNumber, secondNumber, result;
 
+
     // we're probably going to want to move this into conveyor mommy later, and have this controlled by an animation curve
     public float speed = 2;
     void Awake()
@@ -28,15 +29,11 @@ public class MovingBox : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = Vector3.MoveTowards(transform.position, new Vector2(transform.position.x, conveyorEnd.position.y), speed);
+        transform.position = Vector3.MoveTowards(transform.position, new Vector2(transform.position.x, conveyorEnd.position.y), GameManager.baseConveyorSpeed);
         if (transform.position.y <= conveyorEnd.position.y)
         {
+            // reached end.
             Destroy(gameObject);
         }
-    }
-
-    public int GetResult()
-    {
-        return result;
     }
 }

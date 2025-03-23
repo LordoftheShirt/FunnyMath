@@ -105,6 +105,7 @@ public class PairPlayerInput : MonoBehaviour
             {
                 playerWheelController.ChangeButtonColor(6, 1);
                 rightHighlight = 6;
+                newRightNumber = true;
             }
         } else if (insertTriangle.transform.localEulerAngles.z > 36 && insertTriangle.transform.eulerAngles.z < 108)
         {

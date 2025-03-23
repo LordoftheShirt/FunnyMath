@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0ce11796a5ec434ab93c88f832042f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conveyorOn: 1
+  conveyorOn: 0
 --- !u!1 &47400526
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0ce11796a5ec434ab93c88f832042f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conveyorOn: 1
+  conveyorOn: 0
 --- !u!1 &226138691
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,7 +601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0ce11796a5ec434ab93c88f832042f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conveyorOn: 1
+  conveyorOn: 0
 --- !u!1 &232856779
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,7 +786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0ce11796a5ec434ab93c88f832042f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conveyorOn: 1
+  conveyorOn: 0
 --- !u!1 &294967150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1945,7 +1945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0ce11796a5ec434ab93c88f832042f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conveyorOn: 1
+  conveyorOn: 0
 --- !u!1 &959056736
 GameObject:
   m_ObjectHideFlags: 0
@@ -2802,6 +2802,7 @@ MonoBehaviour:
   - {fileID: 1408888039}
   - {fileID: 1301743730}
   playerPaired: 0
+  myAnswer: 0
 --- !u!1 &1526280171
 GameObject:
   m_ObjectHideFlags: 0
@@ -3913,6 +3914,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCount:
   - {fileID: 1418424924}
+  answerRegistry: 
+  totalSumCleared: 0
 --- !u!4 &1987340949
 Transform:
   m_ObjectHideFlags: 0
@@ -4063,6 +4066,7 @@ MonoBehaviour:
   verticalOffset: 10
   child: {fileID: 1320767569182715292, guid: 662c12412b104b241a7a9989b82c4720, type: 3}
   conveyorStart: {fileID: 1294736146}
+  goCrazy: 0
 --- !u!114 &2110067242
 MonoBehaviour:
   m_ObjectHideFlags: 0

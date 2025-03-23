@@ -6,10 +6,10 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] public PlayerWheelController[] playerCount;
     //private static int health = 3;
-    //private static float conveyorSpeed = 2;
+    public static float baseConveyorSpeed = 1f;
     public int[] answerRegistry;
 
-    private int totalSumCleared;
+    public int totalSumCleared;
 
     void Awake()
     {

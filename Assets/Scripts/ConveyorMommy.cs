@@ -10,13 +10,13 @@ public class ConveyorMommy : MonoBehaviour
     [SerializeField] private GameObject child;
     [SerializeField] private Transform conveyorStart;
 
+    [SerializeField] private bool goCrazy = false;
+
     private ConveyorLine[] conveyorParents;
 
     private RectTransform childSize;
     private int activeConveyors = 0;
     private int[] playerAnswers;
-
-    private bool goCrazy = false;
 
     private GameManager gameManager;
 
@@ -35,8 +35,6 @@ public class ConveyorMommy : MonoBehaviour
                 activeConveyors++;
             }
         }
-
-        Debug.Log("Active Conveyors: "  + activeConveyors);
     }
 
     private void Update()
@@ -95,11 +93,15 @@ public class ConveyorMommy : MonoBehaviour
         {
             for (int j = 0; j < conveyorParents[i].transform.childCount; j++)
             {
-                foreach (int answer in gameManager.answerRegistry)
+
+                for (int y = 0; gameManager.answerRegistry.Length > y; y++)
                 {
-                    if (answer == SiblingResult(i, j))
+                    if (gameManager.answerRegistry[y] == SiblingResult(i, j))
                     {
-                        Destroy(conveyorParents[i].transform.GetChild(j));
+                        gameManager.totalSumCleared =+ SiblingResult(i, j);
+
+                        Destroy(conveyorParents[i].transform.GetChild(j).gameObject);
+                        gameManager.playerCount[y].ResetAnswer();
                         break;
                     }
                 }
@@ -109,15 +111,15 @@ public class ConveyorMommy : MonoBehaviour
 
     private void CheckOnlyBottomSiblings()
     {
-        Debug.Log("Answer Registry Length: " + gameManager.answerRegistry.Length);
         for (int i = 0; i < activeConveyors; i++)
         {
-            for (int j = 0; gameManager.answerRegistry.Length > 0; j++)
+            for (int j = 0; gameManager.answerRegistry.Length > j; j++)
             {
-                Debug.Log("J:" +j + " I: " + i);
                 if (gameManager.answerRegistry[j] == SiblingResult(i, 0))
                 {
-                    Destroy(conveyorParents[i].transform.GetChild(0));
+                    gameManager.totalSumCleared =+ SiblingResult(i, 0);
+
+                    Destroy(conveyorParents[i].transform.GetChild(0).gameObject);
                     gameManager.playerCount[j].ResetAnswer();
                     break;
                 }
