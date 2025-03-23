@@ -187,6 +187,70 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: de46e426-2964-4e5f-8ba8-bca8e109aab7
     m_ActionName: CharController/RemoveDigit[/XInputControllerWindows/leftShoulder,/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1848643710122960082}
+        m_TargetAssemblyTypeName: PairPlayerInput, Assembly-CSharp
+        m_MethodName: SpeedConveyor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9f37e6b9-176d-4554-9268-efb7536a4d79
+    m_ActionName: CharController/Temp SpeedConveyor[/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1848643710122960082}
+        m_TargetAssemblyTypeName: PairPlayerInput, Assembly-CSharp
+        m_MethodName: SlowConveyor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9a3bb3a8-3629-4b72-91fd-14d08ad2404c
+    m_ActionName: CharController/Temp SlowConveyor[/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1848643710122960082}
+        m_TargetAssemblyTypeName: PairPlayerInput, Assembly-CSharp
+        m_MethodName: AddAConveyor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 658bad92-e47c-441d-ad1c-634baeffcf9b
+    m_ActionName: CharController/Temp AddConveyor[/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1848643710122960082}
+        m_TargetAssemblyTypeName: PairPlayerInput, Assembly-CSharp
+        m_MethodName: RemoveAConveyor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9021b063-4314-4ac6-9241-92232330f434
+    m_ActionName: CharController/Temp RemoveConveyor[/XInputControllerWindows/buttonEast]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: CharController

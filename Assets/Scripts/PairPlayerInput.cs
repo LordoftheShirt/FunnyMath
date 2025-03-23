@@ -26,6 +26,9 @@ public class PairPlayerInput : MonoBehaviour
             if (!gameManager.playerCount[i].playerPaired)
             {
                 playerWheelController = gameManager.playerCount[i];
+                // Added post mortem.
+                playerWheelController.gameObject.SetActive(true);
+
                 transform.SetParent(playerWheelController.transform.parent);
                 playerWheelController.playerPaired = true;
                 break;
@@ -42,6 +45,9 @@ public class PairPlayerInput : MonoBehaviour
             // It is important that 1-5 Wheel is child index 0, and that 6-0 is index 1. Parent being: Wheel Collection.
             triangleLeftAnchor = playerWheelController.transform.GetChild(0).transform.position;
             triangleRightAnchor = playerWheelController.transform.GetChild(1).transform.position;
+
+            triangleLeft.position = new Vector2(triangleLeftAnchor.x + leftStickMovementInput.x * constrainedDistanceLength, triangleLeftAnchor.y + leftStickMovementInput.y * constrainedDistanceLength);
+            triangleRight.position = new Vector2(triangleRightAnchor.x + rightStickMovementInput.x * constrainedDistanceLength, triangleRightAnchor.y + rightStickMovementInput.y * constrainedDistanceLength);
         }
     }
 
@@ -82,6 +88,42 @@ public class PairPlayerInput : MonoBehaviour
     public void RightJoyStick(InputAction.CallbackContext ctx) => rightStickMovementInput = ctx.ReadValue<Vector2>();
 
     public void LeftJoyStick(InputAction.CallbackContext ctx1) => leftStickMovementInput = ctx1.ReadValue<Vector2>();
+
+
+    // These four below are temporary player inputs.
+    public void SlowConveyor(InputAction.CallbackContext context)
+    {
+        if (context.started) 
+        {
+            GameManager.baseConveyorSpeed -= 0.2f;
+        }
+    }
+
+    public void SpeedConveyor(InputAction.CallbackContext context) 
+    {
+        if (context.started)
+        {
+            GameManager.baseConveyorSpeed += 0.2f;
+        }
+    }
+
+    public void AddAConveyor(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            //Debug.Log("Conveyor Added!");
+            gameManager.conveyorManager.AddConveyor();
+        }
+    }
+
+    public void RemoveAConveyor(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            //Debug.Log("Conveyor Removed.");
+            gameManager.conveyorManager.RemoveConveyor();
+        }
+    }
 
     public void RemoveDigit(InputAction.CallbackContext context)
     {

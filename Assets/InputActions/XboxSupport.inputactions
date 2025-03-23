@@ -31,6 +31,42 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Temp SpeedConveyor",
+                    "type": "Button",
+                    "id": "9f37e6b9-176d-4554-9268-efb7536a4d79",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Temp SlowConveyor",
+                    "type": "Button",
+                    "id": "9a3bb3a8-3629-4b72-91fd-14d08ad2404c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Temp AddConveyor",
+                    "type": "Button",
+                    "id": "658bad92-e47c-441d-ad1c-634baeffcf9b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Temp RemoveConveyor",
+                    "type": "Button",
+                    "id": "9021b063-4314-4ac6-9241-92232330f434",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -97,6 +133,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "RemoveDigit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "59d10316-2316-48a8-8af2-3eec797f9bd2",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Temp SpeedConveyor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9ad6f0e4-11bf-4319-8fcd-2f6918406db5",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Temp SlowConveyor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e22cd56e-49c7-4bac-9c6b-6c16b0f88848",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Temp AddConveyor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ac2d2c36-fbca-4c8d-ad40-4d8ce447f097",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Temp RemoveConveyor",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -41,6 +42,17 @@ public class ConveyorMommy : MonoBehaviour
 
     private void Update()
     {
+
+    }
+
+    void FixedUpdate()
+    {
+        for (int i = 0; activeConveyors > i; i++) 
+        {
+            ConveyorAction(i);
+        }
+
+        // All this used to be in update.
         UpdateAnswerRegistry();
 
         if (goCrazy)
@@ -50,14 +62,6 @@ public class ConveyorMommy : MonoBehaviour
         else
         {
             CheckOnlyBottomSiblings();
-        }
-    }
-
-    void FixedUpdate()
-    {
-        for (int i = 0; activeConveyors > i; i++) 
-        {
-            ConveyorAction(i);
         }
     }
 
@@ -100,7 +104,9 @@ public class ConveyorMommy : MonoBehaviour
                 {
                     if (gameManager.answerRegistry[y] == SiblingResult(i, j))
                     {
-                        gameManager.totalSumCleared =+ SiblingResult(i, j);
+                        gameManager.totalSumCleared += SiblingResult(i, j);
+
+                        BoxDeathAnimation(i, j, y);
 
                         Destroy(conveyorParents[i].transform.GetChild(j).gameObject);
                         gameManager.playerCount[y].ResetAnswer();
@@ -121,7 +127,7 @@ public class ConveyorMommy : MonoBehaviour
             {
                 if (gameManager.answerRegistry[j] == SiblingResult(i, 0))
                 {
-                    gameManager.totalSumCleared =+ SiblingResult(i, 0);
+                    gameManager.totalSumCleared += SiblingResult(i, 0);
 
                     BoxDeathAnimation(i, 0, j);
 
@@ -162,6 +168,26 @@ public class ConveyorMommy : MonoBehaviour
         tempDeathAnimation.transform.GetChild(0).GetComponent<Image>().color = gameManager.playerCount[playerIndex].colors[1];
 
         tempDeathAnimation.AddComponent<BoxDeath>();
+    }
+
+    public void AddConveyor()
+    {
+        // is untested.
+        if (activeConveyors < transform.childCount)
+        {
+            print("This +1: " + activeConveyors);
+            activeConveyors++;
+        }
+    }
+
+    public void RemoveConveyor()
+    {
+        // is untested.
+        if (activeConveyors > 2)
+        {
+            print("This -1: " +activeConveyors);
+            activeConveyors--;
+        }
     }
 }
 

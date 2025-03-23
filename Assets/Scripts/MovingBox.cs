@@ -33,6 +33,7 @@ public class MovingBox : MonoBehaviour
         if (transform.position.y <= conveyorEnd.position.y)
         {
             // reached end.
+            GameManager.HealthLoss();
             Destroy(gameObject);
         }
     }

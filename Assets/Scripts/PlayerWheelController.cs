@@ -19,9 +19,10 @@ public class PlayerWheelController : MonoBehaviour
     public int myAnswer;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        // Added post mortem.
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
