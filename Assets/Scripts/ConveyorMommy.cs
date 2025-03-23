@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ConveyorMommy : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class ConveyorMommy : MonoBehaviour
     private int[] playerAnswers;
 
     private GameManager gameManager;
+    private GameObject tempDeathAnimation;
 
     void Start()
     {
@@ -113,11 +115,15 @@ public class ConveyorMommy : MonoBehaviour
     {
         for (int i = 0; i < activeConveyors; i++)
         {
+            ActivateBoxHighlight(i, 0);
+
             for (int j = 0; gameManager.answerRegistry.Length > j; j++)
             {
                 if (gameManager.answerRegistry[j] == SiblingResult(i, 0))
                 {
                     gameManager.totalSumCleared =+ SiblingResult(i, 0);
+
+                    BoxDeathAnimation(i, 0, j);
 
                     Destroy(conveyorParents[i].transform.GetChild(0).gameObject);
                     gameManager.playerCount[j].ResetAnswer();
@@ -126,11 +132,13 @@ public class ConveyorMommy : MonoBehaviour
             }
 
         }
-        // gets bottom siblings and stores them in an array, then matches with answers.
-
-        // NOTE: DIGIT AMOUNT ALLOWED IS ITS OWN VARIABLE WHICH ONE MANUALLY INCREASES (STARTING AT 2 VARIABLES ALLOWED IF NOT THIRD IS AN ANSWER IN AND OF ITSELF.)
     }
 
+    private void ActivateBoxHighlight(int conveyorIndex, int siblingIndex)
+    {
+        // Highlight gameObject must always be second sibling.
+        conveyorParents[conveyorIndex].transform.GetChild(siblingIndex).transform.GetChild(1).gameObject.SetActive(true);
+    }
 
     private void UpdateAnswerRegistry()
     {
@@ -146,4 +154,15 @@ public class ConveyorMommy : MonoBehaviour
             }
         }
     }
+
+    private void BoxDeathAnimation(int conveyorIndex, int siblingIndex, int playerIndex)
+    {
+        tempDeathAnimation = Instantiate(child, conveyorParents[conveyorIndex].transform.GetChild(siblingIndex).position, Quaternion.identity, gameObject.transform.parent.parent);
+
+        tempDeathAnimation.transform.GetChild(0).GetComponent<Image>().color = gameManager.playerCount[playerIndex].colors[1];
+
+        tempDeathAnimation.AddComponent<BoxDeath>();
+    }
 }
+
+

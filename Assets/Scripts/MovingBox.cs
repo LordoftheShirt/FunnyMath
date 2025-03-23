@@ -36,4 +36,6 @@ public class MovingBox : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
 }

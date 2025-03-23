@@ -7,13 +7,14 @@ using UnityEngine.UI;
 
 public class PlayerWheelController : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI numberDisplay;
-    [SerializeField] private Color[] colors;
+    [SerializeField] private TextMeshProUGUI numberDisplay, clearAnimation;
+    [SerializeField] public Color[] colors;
     [SerializeField] private Image[] buttons;
 
     public bool playerPaired = false;
     private string inputText = "";
     private int colorLerpSpeed = 4;
+    private TextMeshProUGUI tempAnimationText;
 
     public int myAnswer;
 
@@ -49,7 +50,7 @@ public class PlayerWheelController : MonoBehaviour
         }
 
 
-        /*
+        /* out date FAIL and STUN mechanic
         if (bottomChild != null && numberDisplay.text.Length >= digitCount)
         {
             int.TryParse(inputText, out myResult);
@@ -98,8 +99,18 @@ public class PlayerWheelController : MonoBehaviour
 
     public void ResetAnswer()
     {
+        PlayNumberClearAnimation();
+
         inputText = "";
         myAnswer = 0;
         MatchDisplay();
+    }
+
+    private void PlayNumberClearAnimation()
+    {
+
+        tempAnimationText = Instantiate(clearAnimation, numberDisplay.transform.position, Quaternion.identity, numberDisplay.transform);
+        tempAnimationText.text = numberDisplay.text;
+        tempAnimationText.color = colors[2];
     }
 }
