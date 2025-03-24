@@ -12,6 +12,8 @@ public class ConveyorMommy : MonoBehaviour
     [SerializeField] private GameObject child;
     [SerializeField] private Transform conveyorStart;
 
+    [SerializeField] public AnimationCurve[] speedBehaviour;
+
     [SerializeField] private bool goCrazy = false;
 
     private ConveyorLine[] conveyorParents;
@@ -105,6 +107,7 @@ public class ConveyorMommy : MonoBehaviour
                     if (gameManager.answerRegistry[y] == SiblingResult(i, j))
                     {
                         gameManager.totalSumCleared += SiblingResult(i, j);
+                        gameManager.totalBoxesCleared++;
 
                         BoxDeathAnimation(i, j, y);
 
@@ -128,6 +131,7 @@ public class ConveyorMommy : MonoBehaviour
                 if (gameManager.answerRegistry[j] == SiblingResult(i, 0))
                 {
                     gameManager.totalSumCleared += SiblingResult(i, 0);
+                    gameManager.totalBoxesCleared++;
 
                     BoxDeathAnimation(i, 0, j);
 

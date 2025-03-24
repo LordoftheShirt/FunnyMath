@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI healthCounter, sumCounter;
+    [SerializeField] private TextMeshProUGUI healthCounter, sumCounter, boxCounter;
 
     [SerializeField] public ConveyorMommy conveyorManager;
     [SerializeField] public PlayerWheelController[] playerCount;
@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public static bool lostHealth = false;
 
     public int totalSumCleared = 0;
+    public int totalBoxesCleared = 0;
 
     private static float immunityTimer = 3;
     private static float immunityCounter;
@@ -38,6 +39,11 @@ public class GameManager : MonoBehaviour
         if (sumCounter.text != totalSumCleared.ToString())
         {
             sumCounter.text = totalSumCleared.ToString();
+        }
+
+        if (boxCounter.text != totalBoxesCleared.ToString())
+        {
+            boxCounter.text = totalBoxesCleared.ToString();
         }
 
 
