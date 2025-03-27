@@ -25,6 +25,10 @@ public class SnakeMovement : MonoBehaviour
 
         transform.up = snakeFaceDirection;
 
+        print(swipeDirection);
+
+        // HÖGER PLUS 1
+        // UP PLUS 1
     }
 
     public void SwipeInput(InputAction.CallbackContext ctx) => swipeDirection = ctx.ReadValue<Vector2>();

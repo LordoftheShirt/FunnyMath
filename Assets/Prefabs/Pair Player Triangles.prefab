@@ -143,11 +143,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1848643710122960082}
         m_TargetAssemblyTypeName: PairPlayerInput, Assembly-CSharp
-        m_MethodName: RightJoyStick
-        m_Mode: 0
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -251,6 +251,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9021b063-4314-4ac6-9241-92232330f434
     m_ActionName: CharController/Temp RemoveConveyor[/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f581e265-868e-4e19-b07d-781545981429
+    m_ActionName: Phone/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: CharController
