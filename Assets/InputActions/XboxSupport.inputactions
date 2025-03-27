@@ -181,6 +181,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Phone",
+            "id": "cb0fb62f-be9b-4ba0-b0c3-40c208616e5a",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Value",
+                    "id": "f581e265-868e-4e19-b07d-781545981429",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "dbd9407d-e8bd-4184-a729-3cf9caa01d9c",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8a60ff83-c9dd-4612-9e56-ffff48e16650",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
