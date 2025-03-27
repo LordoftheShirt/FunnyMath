@@ -67,6 +67,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleAutoSelect",
+                    "type": "Button",
+                    "id": "4ba93f45-fe51-44a2-b01e-ffbfc38ffa39",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SelectLeft",
+                    "type": "Button",
+                    "id": "709cba45-12e8-496c-ba1a-8745855f0c2a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SelectRight",
+                    "type": "Button",
+                    "id": "23d41aa3-f3e1-4dca-8c19-2f0114c9a9c1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -107,28 +134,6 @@
                     "name": "",
                     "id": "e885a69b-9fe3-4896-925a-81379a80c878",
                     "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RemoveDigit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "67a47ffc-a9e6-475b-831e-cfa64cf9ac7e",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RemoveDigit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "611b68b5-ea2e-4dbe-8a5c-a8e5307664e1",
-                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -179,43 +184,37 @@
                     "action": "Temp RemoveConveyor",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Phone",
-            "id": "cb0fb62f-be9b-4ba0-b0c3-40c208616e5a",
-            "actions": [
-                {
-                    "name": "New action",
-                    "type": "Value",
-                    "id": "f581e265-868e-4e19-b07d-781545981429",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "",
-                    "id": "dbd9407d-e8bd-4184-a729-3cf9caa01d9c",
-                    "path": "",
+                    "id": "2e5add75-b8b7-47c8-8140-38bd9d86709f",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "ToggleAutoSelect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "8a60ff83-c9dd-4612-9e56-ffff48e16650",
-                    "path": "",
+                    "id": "3b9fd5b3-a39d-48a0-a0cc-e1c0570ebcfc",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "SelectLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fffbea70-37e8-484e-89a3-6e5c7e5579c4",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

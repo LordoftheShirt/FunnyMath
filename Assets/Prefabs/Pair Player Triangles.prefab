@@ -143,11 +143,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1848643710122960082}
         m_TargetAssemblyTypeName: PairPlayerInput, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+        m_MethodName: RightJoyStick
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -252,9 +252,53 @@ MonoBehaviour:
     m_ActionId: 9021b063-4314-4ac6-9241-92232330f434
     m_ActionName: CharController/Temp RemoveConveyor[/XInputControllerWindows/buttonEast]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f581e265-868e-4e19-b07d-781545981429
-    m_ActionName: Phone/New action
+      m_Calls:
+      - m_Target: {fileID: 1848643710122960082}
+        m_TargetAssemblyTypeName: PairPlayerInput, Assembly-CSharp
+        m_MethodName: ToggleFlickSelect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4ba93f45-fe51-44a2-b01e-ffbfc38ffa39
+    m_ActionName: CharController/ToggleAutoSelect[/XInputControllerWindows1/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1848643710122960082}
+        m_TargetAssemblyTypeName: PairPlayerInput, Assembly-CSharp
+        m_MethodName: LeftNumberSelect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 709cba45-12e8-496c-ba1a-8745855f0c2a
+    m_ActionName: CharController/SelectLeft[/XInputControllerWindows1/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1848643710122960082}
+        m_TargetAssemblyTypeName: PairPlayerInput, Assembly-CSharp
+        m_MethodName: RightNumberSelect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 23d41aa3-f3e1-4dca-8c19-2f0114c9a9c1
+    m_ActionName: CharController/SelectRight[/XInputControllerWindows1/rightTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: CharController

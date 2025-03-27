@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,6 +18,9 @@ public class PairPlayerInput : MonoBehaviour
 
     private bool newLeftNumber = false, newRightNumber = false;
     private int leftHighlight, rightHighlight;
+
+    private bool autoSelectOn = true;
+
     void Awake()
     {
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
@@ -63,9 +67,12 @@ public class PairPlayerInput : MonoBehaviour
         }
         else if (newLeftNumber)
         {
-            newLeftNumber = false;
-            playerWheelController.AddDigit(leftHighlight);
-            playerWheelController.ChangeButtonColor(leftHighlight, 2);
+            if (autoSelectOn)
+            {
+                newLeftNumber = false;
+                playerWheelController.AddDigit(leftHighlight);
+                playerWheelController.ChangeButtonColor(leftHighlight, 2);
+            }
         }
 
         // Right Joystick
@@ -78,9 +85,12 @@ public class PairPlayerInput : MonoBehaviour
         }
         else if (newRightNumber)
         {
-            newRightNumber = false;
-            playerWheelController.AddDigit(rightHighlight);
-            playerWheelController.ChangeButtonColor(rightHighlight, 2);
+            if (autoSelectOn)
+            {
+                newRightNumber = false;
+                playerWheelController.AddDigit(rightHighlight);
+                playerWheelController.ChangeButtonColor(rightHighlight, 2);
+            }
         }
 
     }
@@ -89,6 +99,45 @@ public class PairPlayerInput : MonoBehaviour
 
     public void LeftJoyStick(InputAction.CallbackContext ctx1) => leftStickMovementInput = ctx1.ReadValue<Vector2>();
 
+    public void ToggleFlickSelect(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            playerWheelController.ToggleAutoSelectDisplay();
+            newRightNumber = false;
+            newLeftNumber = false;
+
+            if (!autoSelectOn) 
+            {
+                autoSelectOn = true;
+            }
+            else
+            {
+                autoSelectOn = false;
+            }
+            print("auto select: " + autoSelectOn);
+        }
+    }
+    public void LeftNumberSelect(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            newLeftNumber = false;
+            playerWheelController.AddDigit(leftHighlight);
+            playerWheelController.ChangeButtonColor(leftHighlight, 2);
+        }
+    }
+
+    public void RightNumberSelect(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            newRightNumber = false;
+            playerWheelController.AddDigit(rightHighlight);
+            playerWheelController.ChangeButtonColor(rightHighlight, 2);
+            //print(context);
+        }
+    }
 
     // These four below are temporary player inputs.
     public void SlowConveyor(InputAction.CallbackContext context)
@@ -96,6 +145,7 @@ public class PairPlayerInput : MonoBehaviour
         if (context.started) 
         {
             GameManager.baseConveyorSpeed -= 0.2f;
+            print(GameManager.baseConveyorSpeed);
         }
     }
 
@@ -104,6 +154,7 @@ public class PairPlayerInput : MonoBehaviour
         if (context.started)
         {
             GameManager.baseConveyorSpeed += 0.2f;
+            print(GameManager.baseConveyorSpeed);
         }
     }
 
@@ -111,7 +162,7 @@ public class PairPlayerInput : MonoBehaviour
     {
         if (context.started)
         {
-            //Debug.Log("Conveyor Added!");
+            Debug.Log("Conveyor Added!");
             gameManager.conveyorManager.AddConveyor();
         }
     }
@@ -120,7 +171,7 @@ public class PairPlayerInput : MonoBehaviour
     {
         if (context.started)
         {
-            //Debug.Log("Conveyor Removed.");
+            Debug.Log("Conveyor Removed.");
             gameManager.conveyorManager.RemoveConveyor();
         }
     }
@@ -188,9 +239,7 @@ public class PairPlayerInput : MonoBehaviour
             }
             else
             {
-                playerWheelController.ChangeButtonColor(9, 1);
-                rightHighlight = 9;
-                newRightNumber = true;
+                ButtonSelect(9);
             }
         } else if (insertTriangle.transform.localEulerAngles.z < 252 && insertTriangle.transform.eulerAngles.z > 180)
         {
@@ -202,11 +251,25 @@ public class PairPlayerInput : MonoBehaviour
             }
             else
             {
-                playerWheelController.ChangeButtonColor(0, 1);
-                rightHighlight = 0;
-                newRightNumber = true;
+                ButtonSelect(0);
             }
         }
+    }
+
+    private void ButtonSelect(int numberChoice)
+    {
+        playerWheelController.ChangeButtonColor(numberChoice, 1);
+
+            if (numberChoice == 1 || numberChoice == 2 || numberChoice == 3 || numberChoice == 4 || numberChoice == 5)
+            {
+                leftHighlight = numberChoice;
+                newLeftNumber = true;
+            }
+            else
+            {
+                rightHighlight = numberChoice;
+                newRightNumber = true;
+            }
     }
 
 

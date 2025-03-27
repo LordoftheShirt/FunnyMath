@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public PlayerWheelController[] playerCount;
 
     private static int health = 3;
-    public static float baseConveyorSpeed = 1f;
+    public static float baseConveyorSpeed = 0.6f;
     public int[] answerRegistry;
 
     public static bool lostHealth = false;

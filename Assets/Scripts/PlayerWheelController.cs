@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class PlayerWheelController : MonoBehaviour
 {
+
+    [SerializeField] private GameObject flickSelectToggleImage;
     [SerializeField] private TextMeshProUGUI numberDisplay, clearAnimation;
     [SerializeField] public Color[] colors;
     [SerializeField] private Image[] buttons;
@@ -113,5 +115,12 @@ public class PlayerWheelController : MonoBehaviour
         tempAnimationText = Instantiate(clearAnimation, numberDisplay.transform.position, Quaternion.identity, numberDisplay.transform);
         tempAnimationText.text = numberDisplay.text;
         tempAnimationText.color = colors[2];
+    }
+
+    public void ToggleAutoSelectDisplay()
+    {
+        if (flickSelectToggleImage.activeSelf) 
+        flickSelectToggleImage.SetActive(false);
+        else flickSelectToggleImage.SetActive(true);
     }
 }
