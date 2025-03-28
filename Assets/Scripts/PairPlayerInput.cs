@@ -120,7 +120,7 @@ public class PairPlayerInput : MonoBehaviour
     }
     public void LeftNumberSelect(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         {
             newLeftNumber = false;
             playerWheelController.AddDigit(leftHighlight);
@@ -130,7 +130,7 @@ public class PairPlayerInput : MonoBehaviour
 
     public void RightNumberSelect(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         {
             newRightNumber = false;
             playerWheelController.AddDigit(rightHighlight);
@@ -178,7 +178,7 @@ public class PairPlayerInput : MonoBehaviour
 
     public void RemoveDigit(InputAction.CallbackContext context)
     {
-        if (context.started) 
+        if (context.performed) 
         {
             playerWheelController.RemoveDigit();
         }

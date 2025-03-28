@@ -121,6 +121,28 @@
                 },
                 {
                     "name": "",
+                    "id": "7fe7c036-359c-4b07-a0b2-45435faa5bab",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RemoveDigit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e885a69b-9fe3-4896-925a-81379a80c878",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RemoveDigit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "59d10316-2316-48a8-8af2-3eec797f9bd2",
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
@@ -176,8 +198,8 @@
                 },
                 {
                     "name": "",
-                    "id": "b95ae699-dedc-4f37-afda-652cff8997a6",
-                    "path": "<Gamepad>/leftShoulder",
+                    "id": "3b9fd5b3-a39d-48a0-a0cc-e1c0570ebcfc",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -187,34 +209,12 @@
                 },
                 {
                     "name": "",
-                    "id": "85199adf-1ccb-4b33-9d02-cff22aace11e",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SelectRight",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3ffbfecc-5cdb-473d-b298-7cb783fa3eca",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RemoveDigit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4b90c445-9f13-4d22-bd89-ac215bf04b2f",
+                    "id": "fffbea70-37e8-484e-89a3-6e5c7e5579c4",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "RemoveDigit",
+                    "action": "SelectRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

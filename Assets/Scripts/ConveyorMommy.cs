@@ -44,7 +44,7 @@ public class ConveyorMommy : MonoBehaviour
 
     private void Update()
     {
-
+        
     }
 
     void FixedUpdate()

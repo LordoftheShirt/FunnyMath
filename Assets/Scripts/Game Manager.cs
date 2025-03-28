@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
 
     private static int health = 3;
     public static float baseConveyorSpeed = 0.6f;
-    public int[] answerRegistry;
+
+    [System.NonSerialized] public int[] answerRegistry;
 
     public static bool lostHealth = false;
 
