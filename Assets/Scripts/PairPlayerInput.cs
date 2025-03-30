@@ -19,7 +19,7 @@ public class PairPlayerInput : MonoBehaviour
     private bool newLeftNumber = false, newRightNumber = false;
     private int leftHighlight, rightHighlight;
 
-    private bool autoSelectOn = true;
+    private bool autoSelectOn = false;
 
     void Awake()
     {
@@ -124,6 +124,8 @@ public class PairPlayerInput : MonoBehaviour
         {
             newLeftNumber = false;
             playerWheelController.AddDigit(leftHighlight);
+
+            // this animation currently gets completely overwritten. Should turn the button green for a moment after a selection, but the highlight instantly sets itself to the current color.
             playerWheelController.ChangeButtonColor(leftHighlight, 2);
         }
     }
@@ -134,12 +136,13 @@ public class PairPlayerInput : MonoBehaviour
         {
             newRightNumber = false;
             playerWheelController.AddDigit(rightHighlight);
+
+            // this animation currently gets completely overwritten. Should turn the button green for a moment after a selection, but the highlight instantly sets itself to the current color.
             playerWheelController.ChangeButtonColor(rightHighlight, 2);
-            //print(context);
         }
     }
 
-    // These four below are temporary player inputs.
+    // These five below are temporary player inputs.
     public void SlowConveyor(InputAction.CallbackContext context)
     {
         if (context.started) 
@@ -173,6 +176,15 @@ public class PairPlayerInput : MonoBehaviour
         {
             Debug.Log("Conveyor Removed.");
             gameManager.conveyorManager.RemoveConveyor();
+        }
+    }
+
+    public void PressToExplode(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            Debug.Log("boom.");
+            gameManager.conveyorManager.ExplodeConveyor();
         }
     }
 

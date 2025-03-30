@@ -27,8 +27,8 @@ public class MovingBox : MonoBehaviour
 
         conveyorEnd = transform.parent;
 
-        firstNumber = Random.Range(1, 11);
-        secondNumber = Random.Range(1, 11);
+        firstNumber = Random.Range(1, 21);
+        secondNumber = Random.Range(1, 21);
         result = firstNumber * secondNumber;
 
         numberDisplay.text = firstNumber + " x " + secondNumber;

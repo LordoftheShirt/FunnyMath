@@ -94,6 +94,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ExplodeConveyor",
+                    "type": "Button",
+                    "id": "85e01564-169f-451e-9a5e-0ed9d9a40d7a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -166,7 +175,7 @@
                 {
                     "name": "",
                     "id": "2e5add75-b8b7-47c8-8140-38bd9d86709f",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/dpad/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -215,6 +224,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "RemoveDigit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "83366c3d-141d-4a42-9374-b1c2d0532ebe",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExplodeConveyor",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

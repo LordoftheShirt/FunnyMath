@@ -12,26 +12,37 @@ public class GameManager : MonoBehaviour
 
     private static int health = 3;
     public static float baseConveyorSpeed = 0.6f;
+    private float rememberStartSpeed;
+
+    private AudioManager audioManager;
 
     [System.NonSerialized] public int[] answerRegistry;
 
     public static bool lostHealth = false;
 
-    public int totalSumCleared = 0;
-    public int totalBoxesCleared = 0;
+    [System.NonSerialized] public int totalSumCleared = 0;
+    [System.NonSerialized] public int totalBoxesCleared = 0;
 
     private static float immunityTimer = 3;
     private static float immunityCounter;
 
-    void Awake()
+    private void Awake()
     {
+        rememberStartSpeed = baseConveyorSpeed;
         answerRegistry = new int[playerCount.Length];
         immunityCounter = immunityTimer;
+        audioManager = AudioManager.instance;
+    }
+
+    private void Start()
+    {
+        audioManager.Play("BattleBlockTheme");
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
+
         if (healthCounter.text != health.ToString())
         {
             healthCounter.text = health.ToString();
@@ -55,7 +66,7 @@ public class GameManager : MonoBehaviour
 
         if (immunityCounter < 0)
         {
-            baseConveyorSpeed = 1f;
+            baseConveyorSpeed = rememberStartSpeed;
             lostHealth = false;
             immunityCounter = immunityTimer;
         }

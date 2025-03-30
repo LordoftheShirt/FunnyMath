@@ -299,6 +299,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 23d41aa3-f3e1-4dca-8c19-2f0114c9a9c1
     m_ActionName: CharController/SelectRight[/XInputControllerWindows1/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1848643710122960082}
+        m_TargetAssemblyTypeName: PairPlayerInput, Assembly-CSharp
+        m_MethodName: PressToExplode
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 85e01564-169f-451e-9a5e-0ed9d9a40d7a
+    m_ActionName: CharController/ExplodeConveyor[/XInputControllerWindows/dpad/down]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: CharController

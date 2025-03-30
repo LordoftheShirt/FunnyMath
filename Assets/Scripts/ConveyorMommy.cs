@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class ConveyorMommy : MonoBehaviour
 {
+    [SerializeField] private Color unbiasedDeletion;
     [SerializeField] private float horizontalOffset = 5f;
     [SerializeField] private float verticalOffset = 10f;
     [SerializeField] private GameObject child;
@@ -53,6 +54,8 @@ public class ConveyorMommy : MonoBehaviour
         {
             ConveyorAction(i);
         }
+
+
 
         // All this used to be in update.
         UpdateAnswerRegistry();
@@ -176,21 +179,50 @@ public class ConveyorMommy : MonoBehaviour
 
     public void AddConveyor()
     {
-        // is untested.
+        // will enable box spawns upon the next right conveyor.
         if (activeConveyors < transform.childCount)
         {
-            print("This +1: " + activeConveyors);
+            print("Conveyor Added. From: " + activeConveyors + " to " + (activeConveyors + 1));
             activeConveyors++;
+        }
+        else
+        {
+            print("Conveyor Max Reached: " + activeConveyors);
         }
     }
 
     public void RemoveConveyor()
     {
-        // is untested.
-        if (activeConveyors > 2)
+        // Lowering the activeConveyor number actually only stops the continued spawn of boxes on that conveyor.
+        if (activeConveyors > 0)
         {
-            print("This -1: " +activeConveyors);
+            print("Conveyor Removed. From: " + activeConveyors + " to " + (activeConveyors-1));
             activeConveyors--;
+        }
+        else
+        {
+            print("Conveyor minimum reached: " + activeConveyors);
+        }
+    }
+
+    public void ExplodeConveyor()
+    {
+        int conveyorIndex = activeConveyors - 1;
+
+        RemoveConveyor();
+
+        if (conveyorIndex == activeConveyors)
+        {
+            for (int i = 0; i < conveyorParents[conveyorIndex].transform.childCount; i++)
+            {
+                tempDeathAnimation = Instantiate(child, conveyorParents[conveyorIndex].transform.GetChild(i).position, Quaternion.identity, gameObject.transform.parent.parent);
+
+                tempDeathAnimation.transform.GetChild(0).GetComponent<Image>().color = unbiasedDeletion;
+
+                tempDeathAnimation.AddComponent<BoxDeath>();
+
+                Destroy(conveyorParents[conveyorIndex].transform.GetChild(i).gameObject);
+            }
         }
     }
 }
