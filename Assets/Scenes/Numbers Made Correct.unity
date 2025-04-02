@@ -11806,8 +11806,6 @@ MonoBehaviour:
   - {fileID: 1418424924}
   - {fileID: 1796173083}
   - {fileID: 549839911}
-  totalSumCleared: 0
-  totalBoxesCleared: 0
 --- !u!4 &1987340949
 Transform:
   m_ObjectHideFlags: 0

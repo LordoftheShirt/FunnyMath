@@ -50,6 +50,7 @@ public class ConveyorMommy : MonoBehaviour
 
     void FixedUpdate()
     {
+
         for (int i = 0; activeConveyors > i; i++) 
         {
             ConveyorAction(i);
@@ -70,6 +71,7 @@ public class ConveyorMommy : MonoBehaviour
         }
     }
 
+    // The way this method calculates spawn offsets would have to change should one want to adapt this game to more resolutions.
     private void ConveyorAction(int index)
     {
         if (conveyorParents[index].transform.childCount == 0)
@@ -100,7 +102,7 @@ public class ConveyorMommy : MonoBehaviour
     private void TryEverything()
     {
         // This scans literally the entire galaxy to find a result which matches with your answer.
-        for (int i = 0; i < activeConveyors; i++)
+        for (int i = 0; i < conveyorParents.Length; i++)
         {
             for (int j = 0; j < conveyorParents[i].transform.childCount; j++)
             {
@@ -114,7 +116,8 @@ public class ConveyorMommy : MonoBehaviour
 
                         BoxDeathAnimation(i, j, y);
 
-                        Destroy(conveyorParents[i].transform.GetChild(j).gameObject);
+                        //Destroy(conveyorParents[i].transform.GetChild(j).gameObject);
+                        conveyorParents[i].transform.GetChild(j).gameObject.name = "CLEARED";
                         gameManager.playerCount[y].ResetAnswer();
                         break;
                     }
@@ -125,25 +128,28 @@ public class ConveyorMommy : MonoBehaviour
 
     private void CheckOnlyBottomSiblings()
     {
-        for (int i = 0; i < activeConveyors; i++)
+        for (int i = 0; i < conveyorParents.Length; i++)
         {
-            ActivateBoxHighlight(i, 0);
-
-            for (int j = 0; gameManager.answerRegistry.Length > j; j++)
+            if (conveyorParents[i].transform.childCount > 0)
             {
-                if (gameManager.answerRegistry[j] == SiblingResult(i, 0))
+                ActivateBoxHighlight(i, 0);
+
+                for (int j = 0; gameManager.answerRegistry.Length > j; j++)
                 {
-                    gameManager.totalSumCleared += SiblingResult(i, 0);
-                    gameManager.totalBoxesCleared++;
+                    if (gameManager.answerRegistry[j] == SiblingResult(i, 0))
+                    {
+                        gameManager.totalSumCleared += SiblingResult(i, 0);
+                        gameManager.totalBoxesCleared++;
 
-                    BoxDeathAnimation(i, 0, j);
+                        BoxDeathAnimation(i, 0, j);
 
-                    Destroy(conveyorParents[i].transform.GetChild(0).gameObject);
-                    gameManager.playerCount[j].ResetAnswer();
-                    break;
+                        //Destroy(conveyorParents[i].transform.GetChild(0).gameObject);
+                        conveyorParents[i].transform.GetChild(0).gameObject.name = "CLEARED";
+                        gameManager.playerCount[j].ResetAnswer();
+                        break;
+                    }
                 }
             }
-
         }
     }
 

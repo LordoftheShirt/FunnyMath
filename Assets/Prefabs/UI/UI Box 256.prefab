@@ -53,7 +53,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberDisplay: {fileID: 8472166975056770770}
+  boxTypeIndex: 0
   highlight: {fileID: 4166931503451174846}
+  firstNumber: 0
+  secondNumber: 0
   speed: 2
 --- !u!1 &4166931503451174846
 GameObject:
